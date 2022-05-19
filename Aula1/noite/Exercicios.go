@@ -17,7 +17,7 @@ func Ex_1() {
 	var palavra string = "Pneumoultramicroscopicossilicovulcanoconiotico"
 	fmt.Println("A palavra tem", len(palavra), "letras")
 
-	for key, _ := range palavra {
+	for key := range palavra {
 		fmt.Printf("%c ", palavra[key])
 	}
 }
