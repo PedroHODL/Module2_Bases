@@ -53,43 +53,38 @@ func media(notas ...int) (int, error) {
 }
 
 func Ex_3() {
-	funcionarios := []map[string]interface{}{
-		{
-			"num":   1,
-			"horas": 162.0,
-			"tipo":  "C",
-		},
-		{
-			"num":   2,
-			"horas": 176.0,
-			"tipo":  "B",
-		},
-		{
-			"num":   3,
-			"horas": 172.0,
-			"tipo":  "A",
-		},
-	}
+	func1 := FuncionariosS{1, 162.0, "C"}
+	func2 := FuncionariosS{2, 176.0, "B"}
+	func3 := FuncionariosS{3, 172.0, "A"}
 
-	for _, funcionario := range funcionarios {
-		res := 0.0
+	salario(func1)
+	salario(func2)
+	salario(func3)
+}
 
-		switch funcionario["tipo"] {
-		case "A":
-			res += funcionario["horas"].(float64) * 3000.0
-			if funcionario["horas"].(float64) > 160.0 {
-				res *= 1.5
-			}
-		case "B":
-			res += funcionario["horas"].(float64) * 1500.0
-			if funcionario["horas"].(float64) > 160.0 {
-				res *= 1.2
-			}
-		case "C":
-			res += funcionario["horas"].(float64) * 1000.0
+type FuncionariosS struct {
+	Num   int
+	Horas float64
+	Tipo  string
+}
+
+func salario(funcionario FuncionariosS) {
+	res := 0.0
+
+	switch funcionario.Tipo {
+	case "A":
+		res += funcionario.Horas * 3000.0
+		if funcionario.Horas > 160.0 {
+			res *= 1.5
 		}
-
-		fmt.Printf("O funcionário %d do tipo %s receberá um salário de $%.2f\n",
-			funcionario["num"], funcionario["tipo"], res)
+	case "B":
+		res += funcionario.Horas * 1500.0
+		if funcionario.Horas > 160.0 {
+			res *= 1.2
+		}
+	case "C":
+		res += funcionario.Horas * 1000.0
 	}
+	fmt.Printf("O funcionário %d do tipo %s receberá um salário de $%.2f\n",
+		funcionario.Num, funcionario.Tipo, res)
 }
