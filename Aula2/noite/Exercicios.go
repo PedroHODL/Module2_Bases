@@ -3,12 +3,12 @@ package main
 import "fmt"
 
 func main() {
-	Ex_1()
+	Ex1()
 	fmt.Println("--------------Ex 2-------------------")
-	Ex_2()
+	Ex2()
 }
 
-func Ex_1() {
+func Ex1() {
 	aluno1 := Estudante{}
 	aluno1.addEstudante("Pedro", "Henrique", "12.345.678", "16/05/2022")
 	aluno1.printEstudante()
@@ -33,21 +33,22 @@ func (e Estudante) printEstudante() {
 		"foi matriculado no dia", e.DataAdmissao)
 }
 
-// ------------------------------ Ex 2 ------------------------------
-func Ex_2() {
+// Ex2 ------------------------------ Ex 2 ------------------------------
+func Ex2() {
 	produto1 := novoProduto("Grande", "Geladeira", 10000)
 	produto2 := novoProduto("Pequeno", "Smartphone", 4000)
 	produto3 := novoProduto("Médio", "Cadeira Gamer", 15000)
-	
+
+	fmt.Printf("O preço do produto1 é $%.2f \n", produto1.CalcularCusto())
 	loja := novaLoja()
 	loja.Adicionar(produto1)
 	loja.Adicionar(produto2)
 	loja.Adicionar(produto3)
 
-	fmt.Printf("O total da compra é de $%.2f", loja.Total())
+	fmt.Printf("O total da compra é de $%.2f \n", loja.Total())
 }
 
-func novoProduto(tipo, nome string, preço float32) Produto {
+func novoProduto(tipo, nome string, preco float32) Produto {
 	var newProduct = produto{tipo, nome, preco}
 	return &newProduct
 }
@@ -55,7 +56,7 @@ func novoProduto(tipo, nome string, preço float32) Produto {
 type produto struct {
 	Tipo  string
 	nome  string
-	preço float32
+	preco float32
 }
 
 type Produto interface {
@@ -67,22 +68,22 @@ func (p produto) CalcularCusto() float32 {
 
 	switch p.Tipo {
 	case "Pequeno":
-		preco = p.preço
+		preco = p.preco
 	case "Médio":
-		preco = p.preço * 1.03
+		preco = p.preco * 1.03
 	case "Grande":
-		preco = p.preço*1.06 + 2500
+		preco = p.preco*1.06 + 2500
 	}
 	return preco
 }
 
 type loja struct {
-	listaProdutos []produto
+	listaProdutos []Produto
 }
 
 type ECommerce interface {
 	Total() float32
-	Adicionar() error
+	Adicionar(p Produto)
 }
 
 func (l loja) Total() float32 {
@@ -93,7 +94,7 @@ func (l loja) Total() float32 {
 	return total
 }
 
-func (l *loja) Adicionar(p produto) {
+func (l *loja) Adicionar(p Produto) {
 	l.listaProdutos = append(l.listaProdutos, p)
 }
 
