@@ -64,15 +64,13 @@ type Produto interface {
 }
 
 func (p produto) CalcularCusto() float32 {
-	var preco float32
+	var preco float32 = p.preco
 
 	switch p.Tipo {
-	case "Pequeno":
-		preco = p.preco
 	case "Médio":
-		preco = p.preco * 1.03
+		preco *= 1.03
 	case "Grande":
-		preco = p.preco*1.06 + 2500
+		preco = preco*1.06 + 2500
 	}
 	return preco
 }
