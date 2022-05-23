@@ -38,19 +38,13 @@ func Ex2() {
 	produto1 := novoProduto("Grande", "Geladeira", 10000)
 	produto2 := novoProduto("Pequeno", "Smartphone", 4000)
 	produto3 := novoProduto("Médio", "Cadeira Gamer", 15000)
-
 	fmt.Printf("O preço do produto1 é $%.2f \n", produto1.CalcularCusto())
+
 	loja := novaLoja()
 	loja.Adicionar(produto1)
 	loja.Adicionar(produto2)
 	loja.Adicionar(produto3)
-
 	fmt.Printf("O total da compra é de $%.2f \n", loja.Total())
-}
-
-func novoProduto(tipo, nome string, preco float32) Produto {
-	var newProduct = produto{tipo, nome, preco}
-	return &newProduct
 }
 
 type produto struct {
@@ -73,6 +67,11 @@ func (p produto) CalcularCusto() float32 {
 		preco = preco*1.06 + 2500
 	}
 	return preco
+}
+
+func novoProduto(tipo, nome string, preco float32) Produto {
+	var newProduct = produto{tipo, nome, preco}
+	return &newProduct
 }
 
 type loja struct {
