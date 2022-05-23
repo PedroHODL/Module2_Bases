@@ -38,8 +38,8 @@ func Ex_2() {
 	produto1 := novoProduto("Grande", "Geladeira", 10000)
 	produto2 := novoProduto("Pequeno", "Smartphone", 4000)
 	produto3 := novoProduto("Médio", "Cadeira Gamer", 15000)
-	loja := loja{listaProdutos: []produto{}}
-
+	
+	loja := novaLoja()
 	loja.Adicionar(produto1)
 	loja.Adicionar(produto2)
 	loja.Adicionar(produto3)
@@ -94,4 +94,9 @@ func (l loja) Total() float32 {
 
 func (l *loja) Adicionar(p produto) {
 	l.listaProdutos = append(l.listaProdutos, p)
+}
+
+func novaLoja() loja {
+	var l loja
+	return l
 }
