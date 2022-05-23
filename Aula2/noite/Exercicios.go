@@ -47,8 +47,9 @@ func Ex_2() {
 	fmt.Printf("O total da compra é de $%.2f", loja.Total())
 }
 
-func novoProduto(tipo, nome string, preço float32) produto {
-	return produto{Tipo: tipo, nome: nome, preço: preço}
+func novoProduto(tipo, nome string, preço float32) Produto {
+	var newProduct = produto{tipo, nome, preco}
+	return &newProduct
 }
 
 type produto struct {
@@ -96,7 +97,6 @@ func (l *loja) Adicionar(p produto) {
 	l.listaProdutos = append(l.listaProdutos, p)
 }
 
-func novaLoja() loja {
-	var l loja
-	return l
+func novaLoja() ECommerce {
+	return &loja{}
 }
