@@ -5,6 +5,7 @@ import (
 	"github.com/PedroHODL/Playground.git/Aula3/noite/Ex1"
 	"github.com/PedroHODL/Playground.git/Aula3/noite/Ex2"
 	"github.com/PedroHODL/Playground.git/Aula3/noite/Ex3"
+	"github.com/PedroHODL/Playground.git/Aula3/noite/Ex4"
 )
 
 func main() {
@@ -15,5 +16,5 @@ func main() {
 	fmt.Println("---------------Ex 3-------------------")
 	Ex3.Ex3()
 	fmt.Println("---------------Ex 4-------------------")
-	fmt.Print("TA FALTANDO O 4 ;-;")
+	Ex4.Ex4()
 }

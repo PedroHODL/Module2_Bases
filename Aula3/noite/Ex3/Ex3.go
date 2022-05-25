@@ -55,7 +55,7 @@ type Manutenção struct {
 	Preco float64
 }
 
-func somarProdutos(array []Produto, c chan float64) {
+func somarProdutos(array []Produto, c chan<- float64) {
 	total := 0.0
 	for _, prod := range array {
 		total += prod.Preco * float64(prod.Quantidade)
