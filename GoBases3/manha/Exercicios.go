@@ -14,8 +14,8 @@ func main() {
 	loja.Adicionar(novoProduto(434321, 50.50, 1))
 
 	loja.GerarCsv()
-	ExibirCsv("./Aula3/manha/produtos.csv")
-	loja.PullInfoCsv("./Aula3/manha/produtos.csv")
+	ExibirCsv("./GoBases3/manha/produtos.csv")
+	loja.PullInfoCsv("./GoBases3/manha/produtos.csv")
 }
 
 func (l loja) GerarCsv() {
@@ -25,7 +25,7 @@ func (l loja) GerarCsv() {
 		infoCsv = append(infoCsv, []byte(res)...)
 	}
 
-	err := os.WriteFile("./Aula3/manha/produtos.csv", infoCsv, 0644)
+	err := os.WriteFile("./GoBases3/manha/produtos.csv", infoCsv, 0644)
 	if err != nil {
 		fmt.Print("Erro ao escrever no arquivo:")
 		panic(err)

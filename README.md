@@ -6,4 +6,4 @@ Aula 2 - Exercicios concluídos
 
 Aula 3 - Exercicios concluídos
 
-Aula 4 - 
+Aula 4 - Exercicios concluídos

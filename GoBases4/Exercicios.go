@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/PedroHODL/Playground.git/Aula3/noite/Ex1"
-	"github.com/PedroHODL/Playground.git/Aula3/noite/Ex2"
-	"github.com/PedroHODL/Playground.git/Aula3/noite/Ex3"
-	"github.com/PedroHODL/Playground.git/Aula3/noite/Ex4"
+	"github.com/PedroHODL/Playground.git/GoBases4/Ex1"
+	"github.com/PedroHODL/Playground.git/GoBases4/Ex2"
+	"github.com/PedroHODL/Playground.git/GoBases4/Ex3"
+	"github.com/PedroHODL/Playground.git/GoBases4/Ex4"
 )
 
 func main() {
